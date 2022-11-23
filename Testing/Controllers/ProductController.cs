@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Testing.Models;
 
 namespace Testing.Controllers
 {
@@ -17,10 +18,7 @@ namespace Testing.Controllers
             var products = repo.GetAllProducts();
             return View(products);
         }
-        /*public IActionResult Index()
-        {
-            return View();
-        }*/
+        
         public IActionResult ViewProduct(int id)
         {
             var product = repo.GetProduct(id);
@@ -41,5 +39,16 @@ namespace Testing.Controllers
 
             return RedirectToAction("ViewProduct", new { id = product.ProductID });
         }
+        public IActionResult InsertProduct()
+        {
+            var prod = repo.AssignCategory();
+            return View(prod);
+        }
+        public IActionResult InsertProductToDatabase(Product productToInsert)
+        {
+            repo.InsertProduct(productToInsert);
+            return RedirectToAction("Index");
+        }
+        
     }
 }

@@ -8,12 +8,16 @@
 @model IEnumerable<Product>
 
 <h2>Products</h2>
+<div style="display: block">
+    <a href="/Product/InsertProduct/">Create a New Product</a>
+</div>
+
 <table class="table">
     <tr>
         <th>ProductID</th>
         <th>Name</th>
         <th>Price</th>
-        <th>Category ID</th>
+        <th>CategoryID</th>
         <th>On Sale</th>
         <th>Stock Level</th>
     </tr>
